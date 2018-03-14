@@ -29,6 +29,9 @@ import javax.swing.event.ListSelectionListener;
 public class GUI extends JPanel implements PropertyChangeListener {
 
 	private String fnameVal, lnameVal, depVal, numVal;
+	private boolean maleVal = false;
+	private boolean femaleVal = false;
+	private boolean otherVal = false;
 	
 	private JLabel fname;
     private JLabel lname;
@@ -48,7 +51,9 @@ public class GUI extends JPanel implements PropertyChangeListener {
     private JFormattedTextField lnameField;
     private JFormattedTextField depField;
     private JFormattedTextField numField;
-    
+    private JRadioButton maleButton = new JRadioButton(malestring);
+    private JRadioButton femaleButton = new JRadioButton(femalestring);
+    private JRadioButton otherButton = new JRadioButton(otherstring);
     
     public GUI() {
         super(new BorderLayout());
@@ -87,16 +92,13 @@ public class GUI extends JPanel implements PropertyChangeListener {
         
         
       //Create the radio buttons.
-        JRadioButton maleButton = new JRadioButton(malestring);
         maleButton.setMnemonic(KeyEvent.VK_B);
         maleButton.setActionCommand(malestring);
         maleButton.setSelected(true);
  
-        JRadioButton femaleButton = new JRadioButton(femalestring);
         femaleButton.setMnemonic(KeyEvent.VK_C);
         femaleButton.setActionCommand(femalestring);
  
-        JRadioButton otherButton = new JRadioButton(otherstring);
         otherButton.setMnemonic(KeyEvent.VK_D);
         otherButton.setActionCommand(otherstring);
         
@@ -181,6 +183,12 @@ public class GUI extends JPanel implements PropertyChangeListener {
 	            lnameVal = (String) lnameField.getValue();
 	        } else if (source == depField) {
 	        		depVal = (String) depField.getValue();
+	        } else if (source == maleButton) {
+	        		maleVal = true;
+	        } else if (source == femaleButton) {
+	        		femaleVal = true;
+	        } else if (source == otherButton) {
+	        		otherVal = true;
 	        }
 	}
 
