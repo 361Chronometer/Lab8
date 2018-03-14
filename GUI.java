@@ -27,7 +27,7 @@ import javax.swing.UIManager;
 import javax.swing.event.ListSelectionListener;
 
 public class GUI extends JPanel implements PropertyChangeListener {
-
+	
 	private String fnameVal, lnameVal, depVal, numVal;
 	private boolean maleVal = false;
 	private boolean femaleVal = false;
@@ -37,7 +37,6 @@ public class GUI extends JPanel implements PropertyChangeListener {
     private JLabel lname;
     private JLabel dep;
     private JLabel num;
-    private JLabel picture;
     
     private String fnamestring = "First name: ";
     private String lnamestring = "Last name: ";
@@ -121,6 +120,7 @@ public class GUI extends JPanel implements PropertyChangeListener {
         labelPane.add(lname);
         labelPane.add(dep);
         labelPane.add(num);
+
         JPanel buttonPane = new JPanel(new GridLayout(0,1));
         buttonPane.add(maleButton);
         buttonPane.add(femaleButton);
@@ -132,15 +132,13 @@ public class GUI extends JPanel implements PropertyChangeListener {
         fieldPane.add(lnameField);
         fieldPane.add(depField);
         fieldPane.add(numField);
-        fieldPane.add(maleButton);
-        fieldPane.add(femaleButton);
-        fieldPane.add(otherButton);
  
         //Put the panels in this panel, labels on left,
         //text fields on right.
         setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         add(labelPane, BorderLayout.CENTER);
         add(fieldPane, BorderLayout.LINE_END);
+        add(buttonPane, BorderLayout.SOUTH);
     }
     
     private static void createAndShowGUI() {
@@ -195,4 +193,3 @@ public class GUI extends JPanel implements PropertyChangeListener {
 	}
 
 }
-
