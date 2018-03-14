@@ -83,6 +83,7 @@ public class GUI extends JPanel implements PropertyChangeListener {
         numField = new JFormattedTextField();
         numField.setValue(numField);
         numField.setColumns(10);
+        numField.addPropertyChangeListener("value", this);
  
         //Tell accessibility tools about label/textfield pairs.
         fname.setLabelFor(fnameField);
@@ -120,9 +121,10 @@ public class GUI extends JPanel implements PropertyChangeListener {
         labelPane.add(lname);
         labelPane.add(dep);
         labelPane.add(num);
-        labelPane.add(maleButton);
-        labelPane.add(femaleButton);
-        labelPane.add(otherButton);
+        JPanel buttonPane = new JPanel(new GridLayout(0,1));
+        buttonPane.add(maleButton);
+        buttonPane.add(femaleButton);
+        buttonPane.add(otherButton);
  
         //Layout the text fields in a panel.
         JPanel fieldPane = new JPanel(new GridLayout(0,1));
@@ -193,3 +195,4 @@ public class GUI extends JPanel implements PropertyChangeListener {
 	}
 
 }
+
