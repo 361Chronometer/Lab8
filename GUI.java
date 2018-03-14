@@ -108,9 +108,9 @@ public class GUI extends JPanel implements PropertyChangeListener {
         
 
         //Register a listener for the radio buttons.
-        maleButton.addActionListener(null);
-        femaleButton.addActionListener(null);
-        otherButton.addActionListener(null);
+        maleButton.addPropertyChangeListener("value", this);
+        femaleButton.addPropertyChangeListener("value", this);
+        otherButton.addPropertyChangeListener("value", this);
  
         //Lay out the labels in a panel.
         JPanel labelPane = new JPanel(new GridLayout(0,1));
@@ -128,6 +128,9 @@ public class GUI extends JPanel implements PropertyChangeListener {
         fieldPane.add(lnameField);
         fieldPane.add(depField);
         fieldPane.add(numField);
+        fieldPane.add(maleButton);
+        fieldPane.add(femaleButton);
+        fieldPane.add(otherButton);
  
         //Put the panels in this panel, labels on left,
         //text fields on right.
@@ -138,7 +141,7 @@ public class GUI extends JPanel implements PropertyChangeListener {
     
     private static void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("FormattedTextFieldDemo");
+        JFrame frame = new JFrame("Item Selection");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         //Add contents to the window.
